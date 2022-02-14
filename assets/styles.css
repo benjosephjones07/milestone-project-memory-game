@@ -11,17 +11,7 @@ body {
     margin-top: 25px;
   }
   
-  .card-hidden {
-    height: 50px;
-    width: 40px;
-    background-color: red;
-    border: 1px solid black;
-    border-radius: 10%;
-    cursor: pointer;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-  }
-  
-  .card-visible {
+  .card {
     height: 50px;
     width: 40px;
     background-color: green;
@@ -29,6 +19,42 @@ body {
     border-radius: 10%;
     cursor: pointer;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+
+  .grey {
+    background-color: grey;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .indigo {
+    background-color: indigo;
+  }
+
+  .violet {
+    background-color: violet;
+  }
+
+  .brown {
+    background-color: brown;
+  }
+
+  .unflipped {
+    background-color: black;
   }
   
   .game-info {
