@@ -1,9 +1,9 @@
 console.log('working');
 
-const cards=document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.card');
 
 function cardReveal() {
-  cards.classList.toggle('card-visible');
+  this.classList.toggle('card-visible');
 }
 
-cards.addEventListener('click', cardReveal());
+cards.forEach(card => card.addEventListener('click', cardReveal))

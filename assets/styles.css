@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
-    repeat: no-repeat;
+    height: 100vh;
   }
   
   .game-container {
