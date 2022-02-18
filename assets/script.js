@@ -1,4 +1,8 @@
 const cards = document.querySelectorAll('.card');
+const cardsArray = Array.from(cards);
+const deck = document.querySelector('.game-container');
+// const startButton = document.getElementById('start-button');
+// startButton.addEventListener('click', startGame);
 
 let livesCounter = document.getElementById('lives-counter');
 let lives = 9;
@@ -12,7 +16,7 @@ let matchedCards = []
 let totalCards = 16;
 
 // shuffle cards
-const colorsInGame = [
+const colors = [
   'red',
   'orange',
   'yellow',
@@ -22,9 +26,47 @@ const colorsInGame = [
   'violet',
   'brown'
 ];
-document.addEventListener('DOMContentLoaded', () => {
-  Array.from(cards).sort(() => 0.5 - Math.random());
-})
+
+// function shuffle(colors) {
+//   let currentIndex = colors.length, randomIndex;
+
+//   while (currentIndex !== 0) {
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
+//     [colors[currentIndex], colors[randomIndex]] = [
+//       colors[randomIndex], colors[currentIndex]
+//     ];
+//   }
+//   return colors;
+// }
+
+// function startGame() {
+//   const shuffledCards = shuffle(colors);
+
+//   for (let i = 0; i < shuffledCards.length; i++) {
+//     [].forEach.call(shuffledCards, function (item) {
+//       deck.appendChild(item);
+//     });
+//   }
+// }
+
+ for (let color of colors) {
+   const cardAIndex = parseInt(Math.random() * cardsArray.length);
+   const cardA = cardsArray[cardAIndex];
+   cardsArray.splice(cardAIndex, 1);
+   cardA.classList.add(`${color}`);
+   cardA.setAttribute('data-card-color', color);
+
+   const cardBIndex = parseInt(Math.random() * cardsArray.length);
+   const cardB = cardsArray[cardBIndex];
+   cardsArray.splice(cardBIndex, 1);
+   cardB.classList.add(`${color}`);
+   cardB.setAttribute('data-card-color', color);
+ }
+
+// possible shuffle method? document.addEventListener('DOMContentLoaded', () => {
+//   Array.from(cards).sort(() => 0.5 - Math.random());
+// })
 
 function cardReveal() {
   // removes double click bug//
