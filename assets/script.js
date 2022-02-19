@@ -1,8 +1,11 @@
+document.addEventListener('DOMContentLoaded', shuffleCards);
+
 const cards = document.querySelectorAll('.card');
 const cardsArray = Array.from(cards);
 const deck = document.querySelector('.game-container');
-// const startButton = document.getElementById('start-button');
-// startButton.addEventListener('click', startGame);
+const resetButton = document.getElementById('reset-button');
+
+resetButton.addEventListener('click', refreshPage);
 
 let livesCounter = document.getElementById('lives-counter');
 let lives = 9;
@@ -27,46 +30,25 @@ const colors = [
   'brown'
 ];
 
-// function shuffle(colors) {
-//   let currentIndex = colors.length, randomIndex;
+function shuffleCards() {
+  for (let color of colors) {
+    const cardAIndex = parseInt(Math.random() * cardsArray.length);
+    const cardA = cardsArray[cardAIndex];
+    cardsArray.splice(cardAIndex, 1);
+    cardA.classList.add(`${color}`);
+    cardA.setAttribute('data-card-color', color);
+ 
+    const cardBIndex = parseInt(Math.random() * cardsArray.length);
+    const cardB = cardsArray[cardBIndex];
+    cardsArray.splice(cardBIndex, 1);
+    cardB.classList.add(`${color}`);
+    cardB.setAttribute('data-card-color', color);
+  }
+};
 
-//   while (currentIndex !== 0) {
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex--;
-//     [colors[currentIndex], colors[randomIndex]] = [
-//       colors[randomIndex], colors[currentIndex]
-//     ];
-//   }
-//   return colors;
-// }
-
-// function startGame() {
-//   const shuffledCards = shuffle(colors);
-
-//   for (let i = 0; i < shuffledCards.length; i++) {
-//     [].forEach.call(shuffledCards, function (item) {
-//       deck.appendChild(item);
-//     });
-//   }
-// }
-
- for (let color of colors) {
-   const cardAIndex = parseInt(Math.random() * cardsArray.length);
-   const cardA = cardsArray[cardAIndex];
-   cardsArray.splice(cardAIndex, 1);
-   cardA.classList.add(`${color}`);
-   cardA.setAttribute('data-card-color', color);
-
-   const cardBIndex = parseInt(Math.random() * cardsArray.length);
-   const cardB = cardsArray[cardBIndex];
-   cardsArray.splice(cardBIndex, 1);
-   cardB.classList.add(`${color}`);
-   cardB.setAttribute('data-card-color', color);
- }
-
-// possible shuffle method? document.addEventListener('DOMContentLoaded', () => {
-//   Array.from(cards).sort(() => 0.5 - Math.random());
-// })
+function refreshPage(){
+  window.location.reload();
+}
 
 function cardReveal() {
   // removes double click bug//
