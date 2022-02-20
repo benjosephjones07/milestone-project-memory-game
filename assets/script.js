@@ -66,6 +66,8 @@ function cardReveal() {
     if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
       firstReveal.removeEventListener('click', cardReveal);
       secondReveal.removeEventListener('click', cardReveal);
+      let currentMatch = [firstReveal, secondReveal];
+      currentMatch.push(matchedCards);
     } else {
       function flipback() {
         lives--;
@@ -75,9 +77,15 @@ function cardReveal() {
       } setTimeout(flipback, 500);
     }
   }
+
   if (lives == 0){
     alert('Sorry, you have lost the game. Please try again!');
+    refreshPage();
   }
+
+  // not working? if (matchedCards == totalCards){
+  //   alert('You have won the game! Give yourself a pat on the back!');
+  // }
 }
 
 cards.forEach(card => card.addEventListener('click', cardReveal))
