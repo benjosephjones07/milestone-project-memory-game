@@ -56,6 +56,10 @@ body {
   .unflipped {
     background-color: black;
   }
+
+  .matched {
+    border: 3px solid red;
+  }
   
   .game-info {
     display: flex;

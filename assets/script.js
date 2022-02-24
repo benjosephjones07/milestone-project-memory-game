@@ -15,7 +15,7 @@ let firstReveal;
 let secondReveal;
 let hasRevealedCard = false;
 
-let matchedCards = []
+let matchedCards = 0;
 let totalCards = 16;
 
 // shuffle cards
@@ -66,8 +66,9 @@ function cardReveal() {
     if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
       firstReveal.removeEventListener('click', cardReveal);
       secondReveal.removeEventListener('click', cardReveal);
-      let currentMatch = [firstReveal, secondReveal];
-      currentMatch.push(matchedCards);
+      firstReveal.classList.add('matched');
+      secondReveal.classList.add('matched');
+      matchedCards+=2;
     } else {
       function flipback() {
         lives--;
@@ -83,9 +84,12 @@ function cardReveal() {
     refreshPage();
   }
 
-  // not working? if (matchedCards == totalCards){
-  //   alert('You have won the game! Give yourself a pat on the back!');
-  // }
+  if (matchedCards == totalCards){
+    alert('You have won the game! Give yourself a pat on the back!');
+    refreshPage();
+  }
 }
+
+
 
 cards.forEach(card => card.addEventListener('click', cardReveal))
