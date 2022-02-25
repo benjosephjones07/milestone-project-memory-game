@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', shuffleCards);
 
 const cards = document.querySelectorAll('.card');
 const cardsArray = Array.from(cards);
-const deck = document.querySelector('.game-container');
 const resetButton = document.getElementById('reset-button');
 const winMessage = document.getElementById('win-message');
 const loseMessage = document.getElementById('lose-message');
@@ -46,10 +45,17 @@ function shuffleCards() {
     cardB.classList.add(`${color}`);
     cardB.setAttribute('data-card-color', color);
   }
-};
+}
 
 function refreshPage(){
   window.location.reload();
+}
+
+function flipback() {
+  lives--;
+  livesCounter.textContent = lives;
+  firstReveal.classList.add('unflipped');
+  secondReveal.classList.add('unflipped');
 }
 
 function cardReveal() {
@@ -72,12 +78,7 @@ function cardReveal() {
       secondReveal.classList.add('matched');
       matchedCards+=2;
     } else {
-      function flipback() {
-        lives--;
-        livesCounter.textContent = lives;
-        firstReveal.classList.add('unflipped');
-        secondReveal.classList.add('unflipped');
-      } setTimeout(flipback, 500);
+      setTimeout(flipback, 500);
     }
   }
 
@@ -92,4 +93,4 @@ function cardReveal() {
   }
 }
 
-cards.forEach(card => card.addEventListener('click', cardReveal))
+cards.forEach(card => card.addEventListener('click', cardReveal));
