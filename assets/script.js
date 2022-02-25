@@ -4,6 +4,8 @@ const cards = document.querySelectorAll('.card');
 const cardsArray = Array.from(cards);
 const deck = document.querySelector('.game-container');
 const resetButton = document.getElementById('reset-button');
+const winMessage = document.getElementById('win-message');
+const loseMessage = document.getElementById('lose-message');
 
 resetButton.addEventListener('click', refreshPage);
 
@@ -80,16 +82,14 @@ function cardReveal() {
   }
 
   if (lives == 0){
-    alert('Sorry, you have lost the game. Please try again!');
-    refreshPage();
+    loseMessage.classList.add('show');
+    setTimeout(refreshPage, 3000);
   }
 
   if (matchedCards == totalCards){
-    alert('You have won the game! Give yourself a pat on the back!');
-    refreshPage();
+    winMessage.classList.add('show');
+    setTimeout(refreshPage, 3000);
   }
 }
-
-
 
 cards.forEach(card => card.addEventListener('click', cardReveal))

@@ -1,7 +1,12 @@
 body {
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
     height: 100vh;
+    font-family: 'Roboto Condensed', sans-serif;
   }
+
+button {
+  font-family: inherit;
+}
   
   .game-container {
     display: grid;
@@ -12,8 +17,8 @@ body {
   }
   
   .card {
-    height: 50px;
-    width: 40px;
+    height: 7em;
+    width: 6em;
     background-color: green;
     border: 1px solid black;
     border-radius: 10%;
@@ -64,4 +69,49 @@ body {
   .game-info {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  #win-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+
+  #lose-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+
+  #win-message.show {
+    display: flex;
+    animation: message-show 500ms forwards;
+  }
+
+  #lose-message.show {
+    display: flex;
+    animation: message-show 500ms forwards;
+  }
+
+  @keyframes message-show {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, 0.7);
+      font-size: 6em;
+    }
   }
