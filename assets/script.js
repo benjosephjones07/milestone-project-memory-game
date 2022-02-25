@@ -12,6 +12,7 @@ let livesCounter = document.getElementById('lives-counter');
 let lives = 9;
 livesCounter.textContent = lives;
 
+let lockBoard = false;
 let firstReveal;
 let secondReveal;
 let hasRevealedCard = false;
@@ -61,24 +62,30 @@ function flipback() {
 function cardReveal() {
   // removes double click bug//
   if (this === firstReveal) return;
+  if (lockBoard) return;
 
   this.classList.remove('unflipped');
 
   if (!hasRevealedCard) {
     hasRevealedCard = true;
     firstReveal = this;
+    return;
   } else {
     hasRevealedCard = false;
     secondReveal = this;
 
     if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
+      lockBoard = true;
       firstReveal.removeEventListener('click', cardReveal);
       secondReveal.removeEventListener('click', cardReveal);
       firstReveal.classList.add('matched');
       secondReveal.classList.add('matched');
       matchedCards+=2;
+      lockBoard = false;
     } else {
+      lockBoard = true;
       setTimeout(flipback, 500);
+      lockBoard = false;
     }
   }
 
