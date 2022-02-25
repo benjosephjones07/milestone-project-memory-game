@@ -2,6 +2,7 @@ body {
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
     height: 100vh;
     font-family: 'Roboto Condensed', sans-serif;
+    overflow: hidden;
   }
 
 button {
@@ -70,6 +71,12 @@ button {
   .game-info {
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .game-message {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
   }
 
   #win-message {
