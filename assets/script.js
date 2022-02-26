@@ -15,6 +15,7 @@ livesCounter.textContent = lives;
 let firstReveal;
 let secondReveal;
 let hasRevealedCard = false;
+let busy = false;
 
 let matchedCards = 0;
 let totalCards = 16;
@@ -52,16 +53,25 @@ function refreshPage(){
 }
 
 function flipback() {
+  busy = true;
   lives--;
   livesCounter.textContent = lives;
   firstReveal.classList.add('unflipped');
   secondReveal.classList.add('unflipped');
+  busy = false;
+}
+
+function resetCards() {
+  hasRevealedCard = false;
+  busy = false;
+  firstReveal = null; 
+  secondReveal= null;
 }
 
 function cardReveal() {
+  if (busy) return;
   // removes double click bug//
   if (this === firstReveal) return;
-  if (lockBoard) return;
 
   this.classList.remove('unflipped');
 
