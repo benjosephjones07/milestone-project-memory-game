@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', shuffleCards);
+let paused = false;
+let cardsCount = 0;
+
+document.addEventListener('DOMContentLoaded', shuffleCards);  
 
 const cards = document.querySelectorAll('.card');
 const cardsArray = Array.from(cards);
@@ -15,7 +18,6 @@ livesCounter.textContent = lives;
 let firstReveal;
 let secondReveal;
 let hasRevealedCard = false;
-let busy = false;
 
 let matchedCards = 0;
 let totalCards = 16;
@@ -53,38 +55,43 @@ function refreshPage(){
 }
 
 function flipback() {
-  busy = true;
   lives--;
   livesCounter.textContent = lives;
   firstReveal.classList.add('unflipped');
   secondReveal.classList.add('unflipped');
-  busy = false;
+  firstReveal.addEventListener('click', cardReveal);
+  secondReveal.addEventListener('click', cardReveal);
+  firstReveal = null;
 }
 
 function resetCards() {
   hasRevealedCard = false;
-  busy = false;
   firstReveal = null; 
   secondReveal= null;
 }
 
 function cardReveal() {
-  if (busy) return;
-  // removes double click bug//
-  if (this === firstReveal) return;
+  // removes third card click bug
+  if (paused === false) {
+    // removes double click bug//
+    if (this === firstReveal) return;
 
-  this.classList.remove('unflipped');
+    this.classList.remove('unflipped');
+
 
   if (!hasRevealedCard) {
     hasRevealedCard = true;
     firstReveal = this;
+    firstReveal.removeEventListener('click', cardReveal);
+    cardsCount+=1;
   } else {
     hasRevealedCard = false;
     secondReveal = this;
+    secondReveal.removeEventListener('click', cardReveal);
+    cardsCount+=1;
+    paused = true;
 
     if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
-      firstReveal.removeEventListener('click', cardReveal);
-      secondReveal.removeEventListener('click', cardReveal);
       firstReveal.classList.add('matched');
       secondReveal.classList.add('matched');
       matchedCards+=2;
@@ -102,6 +109,14 @@ function cardReveal() {
     winMessage.classList.add('show');
     setTimeout(refreshPage, 3000);
   }
-}
 
+  if(cardsCount == 2){
+    setTimeout(() => {
+      paused = false;
+      cardsCount = 0;
+    }, 900);
+  }
+}
+}
 cards.forEach(card => card.addEventListener('click', cardReveal));
+
