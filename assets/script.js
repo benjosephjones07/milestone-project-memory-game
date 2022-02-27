@@ -31,7 +31,7 @@ const colors = [
   'blue',
   'indigo',
   'violet',
-  'brown'
+  'grey'
 ];
 
 function shuffleCards() {
