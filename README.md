@@ -100,8 +100,8 @@ The validators flagged up a few errors that came with the iframes embedded from 
 
 * Through Google Chrome Dev tools the website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
 * Friends and family were consulted and asked to use the website to further ensure of the websites strong functionality.
-* Some difficulty was encountered between the usage of Bootstrap functionality and custom CSS stylings, where undesired and unexpected outcomes occured, especially when attempting to centre certain sections of the website, and in mobile responsiveness. The decision was eventually made to use Boostrap as the foundation of the website, and custom CSS only when needed.
-* The Lighthouse feature on Google's dev tools was used and the site was edited accordingly. For example, alt text was added to the social links icons, "noopener" tags were added to them also to help ensure safety and conformity to best practise, and a meta description was added to the head of each page to improve SEO.
+* BUGS
+* The Lighthouse feature on Google's dev tools was used and the site was edited accordingly. For example, a meta description was added to the head of the page to improve SEO.
 
 ![Lighthouse report](assets/images/lighthouse-report.png)
 
@@ -120,7 +120,6 @@ The validators flagged up a few errors that came with the iframes embedded from 
 
 ### Code
 
-* Bootstrap 5 was used frequently throughout project development for the purposes of responsiveness and grid system layout.
 * [This](https://github.com/Code-Institute-Solutions/SampleREADME#code-institute-website) Code Institute README.md template was consulted and tailored during the writing of this README.md file for the purposes of structure, typical README.md contents, and boiler plate materials.
 
 ### Content
@@ -129,10 +128,8 @@ The validators flagged up a few errors that came with the iframes embedded from 
 
 ### Media
 
-* The background image was taken by Gabe Jones with usage rights belonging to Frakard.
-* All other images were created by the developer.
+* No images or media was used that required acknowlegment or credit attribution.
 
 ### Acknowledgements
 
-* My Mentor Anthony Ugwu for help particularly in the early stages of development.
 * Code Institute Tutor support for continuous practical tips and advice.
