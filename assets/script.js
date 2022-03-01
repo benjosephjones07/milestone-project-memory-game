@@ -79,44 +79,45 @@ function cardReveal() {
     this.classList.remove('unflipped');
 
 
-  if (!hasRevealedCard) {
-    hasRevealedCard = true;
-    firstReveal = this;
-    firstReveal.removeEventListener('click', cardReveal);
-    cardsCount+=1;
-  } else {
-    hasRevealedCard = false;
-    secondReveal = this;
-    secondReveal.removeEventListener('click', cardReveal);
-    cardsCount+=1;
-    paused = true;
-
-    if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
-      firstReveal.classList.add('matched');
-      secondReveal.classList.add('matched');
-      matchedCards+=2;
+    if (!hasRevealedCard) {
+      hasRevealedCard = true;
+      firstReveal = this;
+      firstReveal.removeEventListener('click', cardReveal);
+      cardsCount+=1;
     } else {
-      setTimeout(flipback, 500);
+      hasRevealedCard = false;
+      secondReveal = this;
+      secondReveal.removeEventListener('click', cardReveal);
+      cardsCount+=1;
+      paused = true;
+
+      if (firstReveal.dataset.cardColor === secondReveal.dataset.cardColor) {
+        firstReveal.classList.add('matched');
+        secondReveal.classList.add('matched');
+        matchedCards+=2;
+      } else {
+        setTimeout(flipback, 500);
+      }
+    }
+
+    if (lives == 0){
+      loseMessage.classList.add('show');
+      setTimeout(refreshPage, 3000);
+    }
+
+    if (matchedCards == totalCards){
+      winMessage.classList.add('show');
+      setTimeout(refreshPage, 3000);
+    }
+
+    if(cardsCount == 2){
+      setTimeout(() => {
+        paused = false;
+        cardsCount = 0;
+      }, 900);
     }
   }
-
-  if (lives == 0){
-    loseMessage.classList.add('show');
-    setTimeout(refreshPage, 3000);
-  }
-
-  if (matchedCards == totalCards){
-    winMessage.classList.add('show');
-    setTimeout(refreshPage, 3000);
-  }
-
-  if(cardsCount == 2){
-    setTimeout(() => {
-      paused = false;
-      cardsCount = 0;
-    }, 900);
-  }
 }
-}
+
 cards.forEach(card => card.addEventListener('click', cardReveal));
 

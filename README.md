@@ -46,12 +46,10 @@ This is the website for a Javascript based memory game. It is designed to be res
 
 ## Features
 
-* Music player from Spotify
-* Video presentation from Youtube
-* Current gig listings
-* Contact page
-* Responsive on all devices
-* Interactive nav bar
+* Javascript based color matching game
+* Reset button
+* Automatic lives counter
+* Automatic win/lose screen
 
 ## Technologies used
 
