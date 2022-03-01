@@ -70,11 +70,9 @@ This is the website for a Javascript based memory game. It is designed to be res
 
 The W3C Markup Validator, W3C CSS Validator, and JShint services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-* W3C HTML validator results - ![HTML validator results](assets/images/html-validator.png)
-* W3C CSS validator results - ![CSS validator results](assets/images/css-validator.png)
+* W3C HTML validator results - ![HTML validator results](#)
+* W3C CSS validator results - ![CSS validator results](#)
 * JShint results - ![JShint results](#)
-
-The validators flagged up a few errors that came with the iframes embedded from Spotify and Youtube. Their code contained outdated html that needed to be corrected, including incorrect html height and width units.
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -100,7 +98,7 @@ The validators flagged up a few errors that came with the iframes embedded from 
 
 * Through Google Chrome Dev tools the website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
 * Friends and family were consulted and asked to use the website to further ensure of the websites strong functionality.
-* BUGS
+* Several bugs were found through these testing procedures - for example, when a card was double clicked the logic considered it a match as it technically had the same data-attribute. This was solved on line 77 of script.js. It was also discovered that the board had to be locked after 2 cards were selected so that no more cards can be selected, otherwise the game would glitch. This was resolved by setting a global 'pause' variable and using it throughout the logic e.g on line 75 of script.js. The final bug was that after 2 mismatched cards had been selected, the user was not able to re-select the first of the previous pair. This was countered by resetting the value of 'firstReveal' after each selected pair.
 * The Lighthouse feature on Google's dev tools was used and the site was edited accordingly. For example, a meta description was added to the head of the page to improve SEO.
 
 ![Lighthouse report](assets/images/lighthouse-report.png)
@@ -121,6 +119,7 @@ The validators flagged up a few errors that came with the iframes embedded from 
 ### Code
 
 * [This](https://github.com/Code-Institute-Solutions/SampleREADME#code-institute-website) Code Institute README.md template was consulted and tailored during the writing of this README.md file for the purposes of structure, typical README.md contents, and boiler plate materials.
+* The shuffling function used within this project is tailored from Web Dev Junkie and can be found at this link (https://www.youtube.com/watch?v=bbb9dZotsOc).
 
 ### Content
 
