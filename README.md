@@ -123,7 +123,7 @@ The W3C Markup Validator, W3C CSS Validator, and JShint services were used to va
 
 ### Content
 
-* All content was written by the developer.
+* All content was written by the developer. Where code was tailored from other sources credit was given directly in the code.
 
 ### Media
 
