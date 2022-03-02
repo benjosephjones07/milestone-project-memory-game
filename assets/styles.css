@@ -34,17 +34,143 @@ button {
   transform: translateY(4px);
 }
   
-  .game-container {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    justify-content: center;
-    margin-top: 25px;
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  height: 7em;
+  width: 6em;
+  background-color: green;
+  border: 1px solid black;
+  border-radius: 10%;
+  cursor: pointer;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.indigo {
+  background-color: indigo;
+}
+
+.violet {
+  background-color: violet;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.unflipped {
+  background-color: black;
+}
+
+.matched {
+  box-shadow: inset 0 0 10px #000;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-message {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1em;
+  padding: 0px;
+}
+
+#win-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #39ff14;
+  -webkit-text-stroke: 2px #FF10F0;
+  z-index: 50;
+}
+
+#lose-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: #39ff14;
+  -webkit-text-stroke: 2px #FF10F0;
+  z-index: 50;
+}
+
+#win-message.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: message-show 500ms forwards;
+}
+
+#lose-message.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: message-show 500ms forwards;
+}
+
+@keyframes message-show {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
   }
-  
+
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 4em;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
   .card {
-    height: 7em;
-    width: 6em;
+    height: 5em;
+    width: 4em;
     background-color: green;
     border: 1px solid black;
     border-radius: 10%;
@@ -91,18 +217,52 @@ button {
   .matched {
     box-shadow: inset 0 0 10px #000;
   }
-  
-  .game-info {
-    display: flex;
-    justify-content: space-evenly;
+
+  #reset-button {
+    height: 75%;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: #39ff14;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+
+  #reset-button:hover {
+    background-color: #33EA11
+  }
+
+  #reset-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
   }
 
   .game-message {
     display: flex;
     justify-content: center;
-    font-size: 1.5em;
+    text-align: center;
+    font-size: 0.75em;
   }
 
+  @keyframes message-show {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+  
+    to {
+      background-color: rgba(0, 0, 0, 0.8);
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
   #win-message {
     display: none;
     position: fixed;
@@ -112,12 +272,13 @@ button {
     right: 0;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-family: 'Press Start 2P', cursive;
     color: #39ff14;
-    -webkit-text-stroke: 2px #FF10F0;
+    -webkit-text-stroke: 1px #FF10F0;
     z-index: 50;
   }
-
+  
   #lose-message {
     display: none;
     position: fixed;
@@ -127,24 +288,11 @@ button {
     right: 0;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-family: 'Press Start 2P', cursive;
     color: #39ff14;
-    -webkit-text-stroke: 2px #FF10F0;
+    -webkit-text-stroke: 1px #FF10F0;
     z-index: 50;
-  }
-
-  #win-message.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: message-show 500ms forwards;
-  }
-
-  #lose-message.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: message-show 500ms forwards;
   }
 
   @keyframes message-show {
@@ -152,93 +300,10 @@ button {
       background-color: rgba(0, 0, 0, 0);
       font-size: 0;
     }
+  
     to {
       background-color: rgba(0, 0, 0, 0.8);
-      font-size: 4em;
-    }
-  }
-
-
-
-
-  @media only screen and (max-width: 700px) {
-    .card {
-      height: 5em;
-      width: 4em;
-      background-color: green;
-      border: 1px solid black;
-      border-radius: 10%;
-      cursor: pointer;
-      box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    }
-
-    .red {
-      background-color: red;
-    }
-  
-    .orange {
-      background-color: orange;
-    }
-  
-    .yellow {
-      background-color: yellow;
-    }
-  
-    .grey {
-      background-color: grey;
-    }
-  
-    .blue {
-      background-color: blue;
-    }
-  
-    .indigo {
-      background-color: indigo;
-    }
-  
-    .violet {
-      background-color: violet;
-    }
-  
-    .brown {
-      background-color: brown;
-    }
-  
-    .unflipped {
-      background-color: black;
-    }
-  
-    .matched {
-      box-shadow: inset 0 0 10px #000;
-    }
-
-    #reset-button {
-      height: 75%;
-      padding: 15px 25px;
-      font-size: 20px;
-      text-align: center;
-      cursor: pointer;
-      outline: none;
-      color: black;
-      background-color: #39ff14;
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 9px #999;
-    }
-    
-    #reset-button:hover {
-      background-color: #33EA11
-    }
-    
-    #reset-button:active {
-      background-color: #3e8e41;
-      box-shadow: 0 5px #666;
-      transform: translateY(4px);
-    }
-
-    .game-message {
-      display: flex;
-      justify-content: center;
       font-size: 1em;
     }
   }
+}
