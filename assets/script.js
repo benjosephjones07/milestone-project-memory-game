@@ -64,12 +64,6 @@ function flipback() {
   firstReveal = null;
 }
 
-function resetCards() {
-  hasRevealedCard = false;
-  firstReveal = null; 
-  secondReveal= null;
-}
-
 function cardReveal() {
   // removes third card click bug
   if (paused === false) {

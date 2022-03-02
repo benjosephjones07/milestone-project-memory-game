@@ -70,9 +70,9 @@ This is the website for a Javascript based memory game. It is designed to be res
 
 The W3C Markup Validator, W3C CSS Validator, and JShint services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-* W3C HTML validator results - ![HTML validator results](#)
-* W3C CSS validator results - ![CSS validator results](#)
-* JShint results - ![JShint results](#)
+* W3C HTML validator results - ![HTML validator results](assets/images/html-validator.png)
+* W3C CSS validator results - ![CSS validator results](assets/images/css-validator.png)
+* JShint results - No warnings shown other than ES6 syntax notifications
 
 ### Testing User Stories from User Experience (UX) Section
 
