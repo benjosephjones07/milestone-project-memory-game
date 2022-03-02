@@ -25,10 +25,10 @@ This is the website for a Javascript based memory game. It is designed to be res
 * ### Design
 
     * __Colour scheme__
-        * The background color is an appealing, gradiated blue/pink, with clear, black font for the game description, and black as the color of the unflipped cards to provide most contrast with the colors of the flipped cards. The flipped cards are then paired by colour to indicate a match to the player. Once a match is found the two cards receive the '.matched' class and a corresponding inset box shadow to give the player a feeling that the match is 'set' and that the cards are no longer playable.
+        * The background color is an appealing, gradiated blue/pink, with clear, black font for the game description, and black as the background color of the unflipped cards to provide most contrast with the colors of the flipped cards. The flipped cards are then paired by colour to indicate a match to the player. Once a match is found the two cards receive the '.matched' class and a corresponding inset box shadow to give the player a feeling that the match is 'set' and that the cards are no longer playable.
 
     * __Typography__
-        * The main font used throughout the site is Roboto Condensed, with sans-serif used as a back up incase an error occurs with the google fonts CDN. Raleway was used for its simplicity, easy readibility, and general aesthetic compatilibility with the website. When a player either wins or loses the appropriate overlay is then displayed, on which the Press Start 2P font is used (with cursive as a back-up), which was chosen because of it's similarity with stereotypical, arcade game imagery.
+        * The main font used throughout the site is Roboto Condensed, with sans-serif used as a back up incase an error occurs with the google fonts CDN. Roboto Condensed was used for its simplicity, easy readibility, and general aesthetic compatilibility with the website. When a player either wins or loses the appropriate overlay is then displayed, on which the Press Start 2P font is used (with cursive as a back-up), which was chosen because of it's similarity with stereotypical, arcade game imagery.
 
     * __Imagery__
         * The grid of unflipped cards is the most eye catching feature when a user first logs on to the website. They are intentionally contrasted with the background in terms of colour, and have been given a box shadow to indicate 'distance' from the background and hint towards a player being able to flip them
@@ -78,7 +78,7 @@ The W3C Markup Validator, W3C CSS Validator, and JShint services were used to va
 
 * __First time visitor goals__
     * (a) As a first time visitor I want to be able to know how to begin and playthrough the game with ease.
-        * When you first visit the website you are greeted by a descriptive passage teeling you to 'match all the cards' and 'click a card to begin'.
+        * When you first visit the website you are greeted by a descriptive passage telling you to 'match all the cards' and 'click a card to begin'.
     * (b) As a first time visitor I want to be given feedback when I have completed an action or stage of the game.
         * When you click on a card it's color is revealed. When you click on a second card you are either presented with a match (that is visibility set with the inset box shadow mentioned previously), or a mis-match indicated by the automatic unflipping of the cards after a 500ms timeout.
     * (c) As a first time visitor I want to be able to continually know how well I am doing at the game, and then whether I have won or lost at the end of the game.
@@ -127,7 +127,7 @@ The W3C Markup Validator, W3C CSS Validator, and JShint services were used to va
 
 ### Media
 
-* No images or media was used that required acknowlegment or credit attribution.
+* No images or media was used that require acknowlegment or credit attribution.
 
 ### Acknowledgements
 
