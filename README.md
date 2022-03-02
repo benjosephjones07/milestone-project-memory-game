@@ -4,7 +4,7 @@ View live project [here](#)
 
 This is the website for a Javascript based memory game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for new players of the game, and entertaining for everyone once gameplay basics have been learned.
 
-![Memory Game mockups](assets/images/memory-game-mockup.png)
+![Memory Game mockups](assets/images/mockup-2.png)
 ---
 ## User Experience (UX)
 
